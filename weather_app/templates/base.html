@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <style>
+        body{
+            margin: 0;
+            line-height: 1.6;
+        }
+        nav{
+            background-color: #333;
+            padding: 1rem;
+        }
+        nav a{
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        .container{
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        .message{
+            padding: 10px;
+            margin: 10px o;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .success{
+            background-color: aliceblue;
+            color: aquamarine;
+            border: 1px solid #333;
+        }
+        .info{
+            background-color: aliceblue;
+            color: yellow;
+            border: 1px solid #333;
+        }
+        .error{
+            background-color: aliceblue;
+            color: red;
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <nav><div class="container">
+        <a href="{% url 'home'%}">Weather App</a>
+    </div></nav>
+
+    
+    <div class="container">
+        
+        {% if messages %}
+            
+            {% for message in messages %}
+                <div class="message {{message.tags}}">
+                    {{message}}
+                </div>
+            {% endfor %}
+                
+        {% endif %}
+            
+        {% block content %}
+        
+        {% endblock content %}
+    </div>
+        
+</body>
+</html>
